@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promociones Mayo - La Pintureria</title>
+    <style>
+        :root {
+            --color-primary: #0056b3; /* Azul principal */
+            --color-secondary: #28a745; /* Verde de acento */
+            --color-border: #ddd; /* Borde claro */
+            --color-background-section: #f8f9fa; /* Fondo gris claro para secciones */
+            --color-background-promo: #e9f7ef; /* Fondo verde claro para fechas */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6; /* Mejora legibilidad */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em; /* Título principal más grande */
+        }
+
+        .category-section {
+            margin-bottom: 40px; /* Más espacio entre categorías */
+            padding: 20px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background-color: var(--color-background-section);
+        }
+
+        .category-title {
+            color: var(--color-primary);
+            font-size: 1.6em; /* Título de categoría */
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--color-primary); /* Separador visual */
+            padding-bottom: 10px;
+        }
+
+        .product-item {
+            margin-bottom: 25px; /* Espacio entre productos */
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ccc; /* Separador sutil entre productos */
+        }
+
+        .product-item:last-child {
+            border-bottom: none; /* No hay borde después del último producto */
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .product-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .product-image-container {
+            flex-shrink: 0; /* Evita que la imagen se encoja */
+            width: 80px; /* Tamaño de imagen ligeramente más pequeño */
+            height: 80px;
+            border: 1px dashed var(--color-border);
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 4px; /* Bordes redondeados para la imagen */
+        }
+
+        .product-image {
+            max-width: 100%;
+            max-height: 100%;
+            display: block; /* Elimina espacio extra bajo la imagen */
+            /* Asegurar que la imagen se ajuste sin distorsión */
+            object-fit: cover;
+        }
+
+        .product-info {
+            flex-grow: 1; /* Permite que la info ocupe el espacio restante */
+        }
+
+        .product-title {
+            font-size: 1.3em; /* Título del producto */
+            color: var(--color-primary);
+            margin: 0 0 5px 0;
+        }
+
+        .product-category-tag { /* Renombrado para evitar conflicto */
+            display: inline-block;
+            background-color: var(--color-secondary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .benefits-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .benefits-list li {
+            margin-bottom: 6px; /* Menos espacio entre beneficios */
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em; /* Tamaño de texto de beneficio */
+        }
+
+        .benefits-list li:before {
+            content: "✓";
+            color: var(--color-secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .promo-dates {
+            background-color: var(--color-background-promo);
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease; /* Transición suave */
+            text-decoration: none; /* Asegura que no se subraya si se usa en un enlace */
+            display: inline-block; /* Para que padding y margin funcionen bien */
+        }
+
+        .btn:hover {
+            background-color: #004494;
+        }
+
+        /* Estilos específicos para botones de ficha técnica */
+        .product-item .btn {
+            margin-top: 10px; /* Espacio encima del botón de ficha */
+            font-size: 0.9em; /* Botón de ficha un poco más pequeño */
+            padding: 8px 15px;
+        }
+
+         /* Estilo para el placeholder de precio */
+         .price-placeholder {
+             font-weight: bold;
+             color: var(--color-secondary); /* O un color que destaque */
+             margin-top: 10px; /* Espacio encima del precio */
+             display: block; /* Para que ocupe su propia línea */
+         }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Promociones Especiales para Profesionales</h1>
+
+        <div class="category-section">
+            <h2 class="category-title">Pinturas para Interior</h2>
+
+            <div class="product-item">
+                <div class="product-header">
+                    <div class="product-image-container">
+                        <img src="https://pinturasalejo.com/wp-content/uploads/2018/01/Pintura-Plastica-Sideral-S-500.jpg" alt="Imagen de SIDERAL S-500" class="product-image" id="preview-s500">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">SIDERAL S-500</h3>
+                        <span class="product-category-tag">Interior</span>
+                    </div>
+                </div>
+                <p>Calidad y Resistencia para Interiores:</p>
+                <ul class="benefits-list">
+                    <li>Pintura monocapa de máxima opacidad.</li>
+                    <li>Acabado extra mate perfecto que disimula imperfecciones.</li>
+                    <li>Sin salpicaduras para un trabajo más limpio.</li>
+                    <li>Menos esfuerzo, inversión inteligente.</li>
+                </ul>
+                 <p class="price-placeholder">Precio: XX €</p>
+                 <a href="https://recursos-email-pintureria.github.io/documentos-pintureria/7002_sideral_s500_es_2023.pdf" target="_blank" class="btn">Ver Ficha Técnica</a>
+            </div>
+
+            <div class="product-item">
+                <div class="product-header">
+                    <div class="product-image-container">
+                         <img src="https://tiendapinturom.com/wp-content/uploads/2024/11/pintura-plastica-sideral-s-390-procolor.jpg" alt="Imagen de SIDERAL S-390" class="product-image" id="preview-s390">
+                    </div>
+                     <div class="product-info">
+                        <h3 class="product-title">SIDERAL S-390</h3>
+                        <span class="product-category-tag">Interior</span>
+                    </div>
+                </div>
+                 <p>Ideal para acabados en pintura lisa con gran rendimiento:</p>
+                <ul class="benefits-list">
+                    <li>Pintura plástica mate de alta calidad.</li>
+                    <li>Excelente cubrición y blancura.</li>
+                    <li>Buena resistencia al frote húmedo.</li>
+                </ul>
+                 <p class="price-placeholder">Precio: XX €</p>
+                 <a href="https://recursos-email-pintureria.github.io/documentos-pintureria/fz66_sideral_s390_es_2023.pdf" target="_blank" class="btn">Ver Ficha Técnica</a>
+            </div>
+
+             <div class="product-item">
+                <div class="product-header">
+                    <div class="product-image-container">
+                         <img src="https://pinturasimcasa.com/wp-content/uploads/2020/03/comodin.jpg" alt="Imagen de COMODÍN" class="product-image" id="preview-comodin">
+                    </div>
+                     <div class="product-info">
+                        <h3 class="product-title">COMODÍN</h3>
+                        <span class="product-category-tag">Interior</span>
+                    </div>
+                </div>
+                 <p>La Pintura con la Mejor Relación Calidad-Precio:</p>
+                <ul class="benefits-list">
+                    <li>Calidad profesional a un precio inmejorable.</li>
+                    <li>Excelente rendimiento y cubrición.</li>
+                    <li>Acabado extra mate que disimula imperfecciones.</li>
+                    <li>Buena opacidad y lavabilidad (Clase 2 y 3 UNE-EN 13300).</li>
+                </ul>
+                 <p class="price-placeholder">Precio: XX €</p>
+                 <a href="https://recursos-email-pintureria.github.io/documentos-pintureria/7014_comodn_es_2023.pdf" target="_blank" class="btn">Ver Ficha Técnica</a>
+            </div>
+            </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Soluciones para Fachadas</h2>
+
+            <div class="product-item">
+                <div class="product-header">
+                    <div class="product-image-container">
+                         <img src="https://www.procolor.es/sites/default/files/styles/product_list_image/public/2021-03/Litocril.png?itok=v5i3A58U" alt="Imagen de LITOCRIL" class="product-image" id="preview-litocril">
+                    </div>
+                     <div class="product-info">
+                        <h3 class="product-title">LITOCRIL</h3>
+                        <span class="product-category-tag">Fachadas</span>
+                    </div>
+                </div>
+                 <p>Protección y Estética para Fachadas:</p>
+                <ul class="benefits-list">
+                    <li>Revestimiento acrílico mate.</li>
+                    <li>Gran adherencia y transpirabilidad.</li>
+                    <li>Excelente resistencia a la intemperie y a los rayos UV.</li>
+                    <li>Protege y embellece fachadas.</li>
+                </ul>
+                 <p class="price-placeholder">Precio: XX €</p>
+                 <a href="https://recursos-email-pintureria.github.io/documentos-pintureria/j623_litocril_es_2023.pdf" target="_blank" class="btn">Ver Ficha Técnica</a>
+            </div>
+            </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Pinturas Funcionales / Especiales</h2>
+
+             <div class="product-item">
+                <div class="product-header">
+                    <div class="product-image-container">
+                         <img src="https://www.pinturasimcasa.com/wp-content/uploads/2020/03/agata-piscina.jpg" alt="Imagen de AGATA Piscinas" class="product-image" id="preview-agata">
+                    </div>
+                     <div class="product-info">
+                        <h3 class="product-title">AGATA</h3>
+                        <span class="product-category-tag">Piscinas / Funcional</span>
+                    </div>
+                </div>
+                 <p>Pintura para Piscinas de Caucho Clorado:</p>
+                <ul class="benefits-list">
+                    <li>Adherencia perfecta.</li>
+                    <li>Excelente resistencia a la intemperie.</li>
+                    <li>Perfecta resistencia al agua dulce ó salada.</li>
+                </ul>
+                 <p class="price-placeholder">Precio: XX €</p>
+                 <a href="https://prdakzodecodocumentssa.blob.core.windows.net/public/tds/pr/es/es/ficha_tecnica_agata.pdf" target="_blank" class="btn">Ver Ficha Técnica</a>
+            </div>
+            </div>
+
+
+        <div class="promo-dates" style="margin-top: 30px;">
+             Promociones válidas del <strong>1 al 31 de mayo</strong>
+        </div>
+
+        <div class="form-actions">
+             <a href="mailto:javierhidalgo@lapintu.es" class="btn">Contacta para Consultas o Pedidos</a>
+        </div>
+    </div>
+
+     <script>
+        // Este script es solo para previsualizar imágenes si editas el HTML localmente
+        // No es necesario para el email final.
+        document.querySelectorAll('.product-image-container').forEach((container) => {
+            // Puedes añadir un event listener si quieres permitir la carga local de imágenes para previsualizar
+            // container.addEventListener('click', function() { ... });
+        });
+
+         // Script para reemplazar placeholders de imagen si es necesario
+         // Asegúrate de que los IDs en el HTML (preview-s500, etc.) coincidan con los que uses aquí
+         window.onload = function() {
+            // Las URLs de las imágenes ya están puestas directamente en el HTML.
+            // Si quieres usar URLs de tus archivos subidos a GitHub Pages, reemplaza las URLs en las etiquetas <img>.
+         }
+    </script>
+</body>
+</html>
